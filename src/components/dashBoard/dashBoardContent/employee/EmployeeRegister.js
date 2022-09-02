@@ -1,13 +1,15 @@
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import BaseLayOut from '../../../layout/BaseLayOut'
+
 
 export default function EmployeeRegister() {
   return (
     <>
-      <Grid2 container>
+        <BaseLayOut titulo={'Novo Funcionário'}>
         <div style={{ background: "red" }}>
           <h1>EmployeeRegister</h1>
         </div>
-      </Grid2>
+        </BaseLayOut>
+
     </>
   );
 }

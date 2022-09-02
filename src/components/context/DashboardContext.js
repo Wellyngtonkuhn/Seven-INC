@@ -1,8 +1,10 @@
 import { useState, createContext, useContext } from "react";
 
-const DashBoardContext = createContext({});
+const DashBoardContext = createContext();
 
-export const useDashBoardContext = () => useContext(DashBoardContext);
+export const useDashBoardContext = () => {
+  return useContext(DashBoardContext);
+};
 
 export default function DashBoardProvider({ children }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
