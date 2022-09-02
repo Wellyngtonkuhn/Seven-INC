@@ -22,12 +22,19 @@
 
     2.3 - Instalar o pacote de ícones
         Com npm:
-            npm install @mui/icons-material
-        Com yarn:
-            yarn add @mui/icons-material
+            Npm - npm install @mui/icons-material
+            Yarn - yarn add @mui/icons-material
 
     2.4 React Router Dom V6: 
             Npm -  npm install react-router-dom@6
             Yarn -  yarn add react-router-dom@6
+
+    2.5 - Formik
+            Npm - npm install formik --save
+            Yarn - yarn add formik
+
+    2.5 - Yup
+            Npm - npm install yup --save
+            Yarn - yarn add yup
 
 

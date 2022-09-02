@@ -18,8 +18,6 @@ import { Box } from "@mui/system";
 
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 
-
-
 const ListItemLink = ({ to, icon, label, onClick }) => {
   const navigate = useNavigate();
   const resolvedPath = useResolvedPath(to);
@@ -40,11 +38,6 @@ const ListItemLink = ({ to, icon, label, onClick }) => {
   );
 };
 
-
-
-
-
-
 export default function MenuLateral({ children }) {
   const { isDrawerOpen, handleDrawer } = useDashBoardContext();
   const [drawerOptions] = useState([
@@ -63,7 +56,7 @@ export default function MenuLateral({ children }) {
       label: "Funcionários",
       to: "/dashboard/employee/list",
     },
-  ])
+  ]);
 
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
@@ -97,9 +90,10 @@ export default function MenuLateral({ children }) {
           <Divider />
           <Box flex={1}>
             <List component="nav">
-            {drawerOptions.map((item) => {
+              {drawerOptions.map((item) => {
                 return (
-                  <ListItemLink key={item.label}
+                  <ListItemLink
+                    key={item.label}
                     icon={item.icon}
                     label={item.label}
                     to={item.to}
