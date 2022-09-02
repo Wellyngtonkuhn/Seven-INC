@@ -37,4 +37,11 @@
             Npm - npm install yup --save
             Yarn - yarn add yup
 
+    2.6 - JSON Server
+            Npm - npm install -g json-server
+
+    2.7 - Axios
+             Npm - npm install axios
+             Yarn - yarn add axios
+
 

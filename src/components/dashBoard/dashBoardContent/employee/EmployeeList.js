@@ -1,12 +1,9 @@
+import BaseLayOut from "../../../layout/BaseLayOut";
 
-
-
-
-export default function EmployeeList(){
-
-    return(
-        <>
-        <h1>EmployeeList</h1>
-        </>
-    )
+export default function EmployeeList() {
+  return (
+    <>
+      <BaseLayOut titulo={"EmployeeList"}></BaseLayOut>
+    </>
+  );
 }

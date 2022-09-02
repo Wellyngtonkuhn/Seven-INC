@@ -1,0 +1,6 @@
+{
+    "employee": [
+        {"id": 1, "nomeCompleto": "Wellyngton Antonio Kuhn", "email": "well@gmail.com", "telefone": "549858745", "Salario": "3500", "dataDeContratacao": "2022-09-05"},
+        {"id": 2, "nomeCompleto": "Antonio Kuhn", "email": "well@gmail.com", "telefone": "549858745", "Salario": "3500", "dataDeContratacao": "2022-09-05"}
+    ]
+}
