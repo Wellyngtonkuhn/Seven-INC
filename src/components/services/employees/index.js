@@ -1,14 +1,17 @@
-import API from "../api/axiosConfig";
+import axios from "axios";
 
-const getAll = async (filter = "") => {
+const Api = axios.create({
+  baseURL: "http://localhost:3333",
+});
+
+const getAll = async () => {
   try {
-    const url = `/employee?_page=16_limit=10&nomeCompleto_like=${filter}`;
-    const { data, headers } = await API.get(url);
+    const url = `/employee`;
+    const { data } = await Api.get(url);
 
     if (data) {
       return {
         data,
-        totalCount: Number(headers["x-total-count"]),
       };
     }
 
@@ -22,7 +25,7 @@ const getAll = async (filter = "") => {
 const getById = async (id) => {
   try {
     const url = `/employee/${id}`;
-    const { data } = await API.get(url);
+    const { data } = await Api.get(url);
 
     if (data) {
       return {
@@ -40,7 +43,7 @@ const getById = async (id) => {
 const create = async (dados) => {
   try {
     const url = "/employee";
-    const { data } = await API.post(url, dados);
+    const { data } = await Api.post(url, dados);
 
     if (data) {
       return data.id;
@@ -53,10 +56,10 @@ const create = async (dados) => {
   }
 };
 
-const upDateById = async (id, dados) => {
+const upDateById = async (id, values) => {
   try {
     const url = `/employee/${id}`;
-    const { data } = await API.put(url, dados);
+    await Api.put(url, values);
   } catch (error) {
     console.log(error);
     return new Error(error || "Erro ao atualizar o registro");
@@ -66,7 +69,7 @@ const upDateById = async (id, dados) => {
 const deleteById = async (id) => {
   try {
     const url = `/employee/${id}`;
-    await API.delete(url);
+    await Api.delete(url);
   } catch (error) {
     console.log(error);
     return new Error(error || "Erro ao excluir o registro");

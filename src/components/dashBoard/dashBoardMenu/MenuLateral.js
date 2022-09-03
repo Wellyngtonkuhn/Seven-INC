@@ -106,7 +106,7 @@ export default function MenuLateral({ children }) {
         </Box>
       </Drawer>
 
-      <Box height="100vh" marginLeft={smDown ? 1 : theme.spacing(35)}>
+      <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(33)}>
         {children}
       </Box>
     </>
