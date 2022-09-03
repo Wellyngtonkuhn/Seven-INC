@@ -44,4 +44,8 @@
              Npm - npm install axios
              Yarn - yarn add axios
 
+## 3 - Observações
+
+     3.1 - Em todas as consultas ao json-server foi adicionado um tempo de espera de 1 segundo para simular o tempo de resposta do servidor e mostrar que o sistema está carregando;
+
 
