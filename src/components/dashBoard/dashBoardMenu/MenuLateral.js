@@ -74,7 +74,7 @@ export default function MenuLateral({ children }) {
     setOpen(!open);
   };
 
-  const handleClick = (to) => {
+  const handleClickMenu = (to) => {
     navigate(to);
     handleDrawer();
   };
@@ -108,7 +108,7 @@ export default function MenuLateral({ children }) {
           <Divider />
           <Box flex={1}>
             <List component="nav">
-              <ListItemButton onClick={() => handleClick("/dashboard")}>
+              <ListItemButton onClick={() => handleClickMenu("/dashboard")}>
                 <ListItemIcon>
                   <Icon>home</Icon>
                 </ListItemIcon>

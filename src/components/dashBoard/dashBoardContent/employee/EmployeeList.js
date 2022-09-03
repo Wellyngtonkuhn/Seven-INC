@@ -13,6 +13,7 @@ import {
   TableFooter,
   TableHead,
   TableRow,
+  Tooltip,
 } from "@mui/material";
 
 import BaseLayOut from "../../../layout/BaseLayOut";
@@ -81,20 +82,24 @@ export default function EmployeeList() {
                       <TableCell>{item.nomeCompleto}</TableCell>
                       <TableCell>{item.email}</TableCell>
                       <TableCell>
-                        <IconButton
-                          onClick={() =>
-                            navigate(`/dashboard/employee/${item.id}`)
-                          }
-                        >
-                          <Icon>create</Icon>
-                        </IconButton>
-                        <IconButton
-                          onClick={() =>
-                            handleDelete(item.id, item.nomeCompleto)
-                          }
-                        >
-                          <Icon>delete</Icon>
-                        </IconButton>
+                        <Tooltip title="Editar">
+                          <IconButton
+                            onClick={() =>
+                              navigate(`/dashboard/employee/${item.id}`)
+                            }
+                          >
+                            <Icon>create</Icon>
+                          </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Deletar">
+                          <IconButton
+                            onClick={() =>
+                              handleDelete(item.id, item.nomeCompleto)
+                            }
+                          >
+                            <Icon>delete</Icon>
+                          </IconButton>
+                        </Tooltip>
                       </TableCell>
                     </TableRow>
                   );

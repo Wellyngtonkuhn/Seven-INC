@@ -1,4 +1,5 @@
 import { useDashBoardContext } from "../context/DashboardContext";
+import NavBar from "../dashBoard/dashBoardMenu/NavBar";
 
 import {
   useTheme,
@@ -10,12 +11,11 @@ import {
 import { Box } from "@mui/system";
 
 export default function BaseLayOut({ children, titulo }) {
-
   const { handleDrawer } = useDashBoardContext();
 
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
-  
+
   return (
     <>
       <Box height="100%" display="flex" flexDirection="column" gap={1}>
@@ -34,8 +34,10 @@ export default function BaseLayOut({ children, titulo }) {
 
           <Typography variant="h5">{titulo}</Typography>
         </Box>
-        <Box>Barra de Ferramentas</Box>
-        <Box>{children}</Box>
+        <Box>
+          <NavBar />
+        </Box>
+        <Box sx={{ m: 1 }}>{children}</Box>
       </Box>
     </>
   );
