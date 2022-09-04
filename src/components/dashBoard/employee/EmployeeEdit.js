@@ -10,20 +10,11 @@ import {
 } from "@mui/material";
 
 import { useFormik } from "formik";
-import * as yup from "yup";
+import { formValidation } from "../../../yup";
 
 import { EmployeeService } from "../../../services/employees";
 import { useParams } from "react-router-dom";
 
-const formValidation = yup.object({
-  name: yup.string().required("Campo Obrigatório"),
-  document: yup.string().required("Campo Obrigatório"),
-  email: yup.string().email("Email Inválido").required("Campo Obrigatório"),
-  phone: yup.string().required("Campo Obrigatório"),
-  birth_date: yup.string().required("Campo Obrigatório"),
-  salary: yup.string().required("Campo Obrigatório"),
-  created_at: yup.string().required("Campo Obrigatório"),
-});
 
 export default function EmployeeEdit() {
   const [detailsEmployee, setDetailsEmployee] = useState([]);

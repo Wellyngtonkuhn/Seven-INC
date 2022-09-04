@@ -1,27 +1,14 @@
 import { useFormik } from "formik";
-import * as yup from "yup";
+
 
 import { Box } from "@mui/system";
-import {
-  TextField,
-  useTheme,
-  useMediaQuery,
-  Button,
-} from "@mui/material";
+import { TextField, useTheme, useMediaQuery, Button } from "@mui/material";
 
 import { EmployeeService } from "../../../services/employees";
+
 import BaseLayOut from "../../layout/BaseLayOut";
 
-const formValidation = yup.object({
-  id: yup.number(),
-  name: yup.string().required("Campo Obrigatório"),
-  document: yup.string().required("Campo Obrigatório"),
-  email: yup.string().email().required("Campo Obrigatório"),
-  phone: yup.string().required("Campo Obrigatório"),
-  birth_date: yup.string().required("Campo Obrigatório"),
-  salary: yup.string().required("Campo Obrigatório"),
-  created_at: yup.string().required("Campo Obrigatório"),
-});
+import { formValidation } from "../../../yup";
 
 export default function EmployeeRegister() {
   const theme = useTheme();
