@@ -8,8 +8,10 @@ import {
   useMediaQuery,
   Button,
 } from "@mui/material";
-import { EmployeeService } from "../../../services/employees";
-import BaseLayOut from "../../../layout/BaseLayOut";
+
+import { EmployeeService } from "../../services/employees";
+import BaseLayOut from "../../layout/BaseLayOut";
+
 const formValidation = yup.object({
   id: yup.number(),
   name: yup.string().required("Campo Obrigatório"),

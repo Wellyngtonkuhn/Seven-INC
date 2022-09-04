@@ -18,8 +18,8 @@ import {
   useTheme,
 } from "@mui/material";
 
-import BaseLayOut from "../../../layout/BaseLayOut";
-import { EmployeeService } from "../../../services/employees";
+import BaseLayOut from "../../layout/BaseLayOut";
+import { EmployeeService } from "../../services/employees";
 
 export default function EmployeeList() {
   const [rows, setRows] = useState([]);

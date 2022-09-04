@@ -16,9 +16,9 @@ import {
   Collapse,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
 const ListItemLink = ({ open, to, icon, label, onClick }) => {
   const navigate = useNavigate();
