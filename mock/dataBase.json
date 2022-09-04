@@ -18,37 +18,17 @@
       "birth_date": "1850-05-10",
       "salary": "3500",
       "created_at": "2022-08-02",
-      "id": 44
-    },
-    {
-      "name": "Maria José Silva",
-      "document": "14547888",
-      "email": "mariaS@gmail.com",
-      "phone": "47899798",
-      "birth_date": "1850-05-10",
-      "salary": "3500",
-      "created_at": "2022-08-02",
       "id": 33
     },
     {
-      "name": "Maria José Silva",
-      "document": "14547888",
-      "email": "mariaS@gmail.com",
-      "phone": "47899798",
-      "birth_date": "1850-05-10",
-      "salary": "3500",
-      "created_at": "2022-08-02",
+      "name": "Paulo",
+      "document": "14564",
+      "email": "PmariaS@gmail.com",
+      "phone": "4646",
+      "birth_date": "8777-04-15",
+      "salary": "21212",
+      "created_at": "1111-12-12",
       "id": 22
-    },
-    {
-      "name": "Maria José Silva",
-      "document": "14547888",
-      "email": "mariaS@gmail.com",
-      "phone": "47899798",
-      "birth_date": "1850-05-10",
-      "salary": "3500",
-      "created_at": "2022-08-02",
-      "id": 11
     }
   ]
 }

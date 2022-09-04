@@ -49,8 +49,8 @@ export default function EmployeeList() {
     }, 1000);
   }, []);
 
-  const handleDelete = (id, nomeCompleto) => {
-    if (window.confirm("Deseja realmente remover " + nomeCompleto + "?")) {
+  const handleDelete = (id, name) => {
+    if (window.confirm("Deseja realmente remover " + name + "?")) {
       EmployeeService.deleteById(id).then((result) => {
         if (result instanceof Error) {
           alert(result.message);
@@ -135,7 +135,7 @@ export default function EmployeeList() {
                         <Tooltip title="Deletar">
                           <IconButton
                             onClick={() =>
-                              handleDelete(item.id, item.nomeCompleto)
+                              handleDelete(item.id, item.name)
                             }
                           >
                             <Icon>delete</Icon>

@@ -21,27 +21,28 @@ export default function BaseLayOut({ children, titulo }) {
     <>
       <Box height="100%">
         <Box
+          width={'100%'}
           display="flex"
           flexDirection="column"
           gap={1}
-          alignItems="center"
-          padding={5}
-          height={theme.spacing(12)}
+          padding={2}
+          height={theme.spacing(12)
+          }
         >
           {mobile && (
-            <Box display="flex">
+            <Box display="flex" justifyContent='space-between' alignItems='center'>
               <Avatar
                 variant="square"
                 sx={{ height: theme.spacing(6), width: theme.spacing(31) }}
                 src="https://www.sevenprotecao.com.br/static/media/logo-seven-full.6a130ddc19bb8818cb36.webp"
               />
               <IconButton onClick={handleDrawer}>
-                <Icon fontSize="large">menu</Icon>
+                <Icon sx={{ fontSize: 60 }}>menu</Icon>
               </IconButton>
             </Box>
           )}
 
-          <Typography sx={{ p: mobile && 1 }} variant="h5">
+          <Typography align='center' sx={{ p: mobile && 1 }} variant="h5">
             {titulo}
           </Typography>
         </Box>

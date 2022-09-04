@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 
-import { Box, Card, CardContent, Skeleton, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Grid,
+  Skeleton,
+  Typography,
+} from "@mui/material";
 import BaseLayOut from "../layout/BaseLayOut";
 import { EmployeeService } from "../services/employees/index";
 
 export default function DashBoardHome() {
+  
   const [totalFuncionarios, setTotalFuncionario] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,7 +25,6 @@ export default function DashBoardHome() {
           alert(result.message);
         } else {
           setTotalFuncionario(result.data);
-          console.log(result.data);
         }
       });
     }, 1000);
@@ -26,26 +33,36 @@ export default function DashBoardHome() {
   return (
     <>
       <BaseLayOut titulo={"PáginaInicial"}>
-        <Box sx={{ m: 1 }}>
-          <Box display="flex" flexWrap="wrap" gap={2}>
-            <Card>
-              {isLoading ? (
-                <>
-                  <Skeleton sx={{ m: 1 }} width={150} height={50} />
-                  <Skeleton sx={{ m: 1 }} width={150} height={50} />
-                </>
-              ) : (
-                <CardContent>
-                  <Typography variant="h5" component="h2">
-                    Funcionários
-                  </Typography>
-                  <Typography variant="p" component="p">
-                    {`Total ${totalFuncionarios.length}`}
-                  </Typography>
-                </CardContent>
-              )}
-            </Card>
-          </Box>
+        <Box display="flex" sx={{ m: 1 }}>
+          <Grid container>
+            <Grid item container spacing={2}>
+              <Grid item xs={12} sm={6} md={3} lg={3} xl={3}>
+                <Card>
+                  <CardContent>
+                    <Typography variant="h5" align="center">
+                      Total de Funcionário
+                    </Typography>
+                    <Box
+                      padding={6}
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      {isLoading ? (
+                        <Box>
+                          <Skeleton width={100} height={100} />
+                        </Box>
+                      ) : (
+                        <Typography variant="h1">
+                          {totalFuncionarios.length}
+                        </Typography>
+                      )}
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
+          </Grid>
         </Box>
       </BaseLayOut>
     </>
