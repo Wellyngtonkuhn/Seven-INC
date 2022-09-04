@@ -14,6 +14,8 @@ import {
   TableHead,
   TableRow,
   Tooltip,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 
 import BaseLayOut from "../../../layout/BaseLayOut";
@@ -22,6 +24,10 @@ import { EmployeeService } from "../../../services/employees";
 export default function EmployeeList() {
   const [rows, setRows] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const theme = useTheme();
+  const tablet = useMediaQuery(theme.breakpoints.down("md"));
+  const desktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   const navigate = useNavigate();
 
@@ -59,7 +65,7 @@ export default function EmployeeList() {
 
   return (
     <>
-      <BaseLayOut titulo={"EmployeeList"}>
+      <BaseLayOut titulo={"Registro de Funcionários"}>
         <TableContainer
           component={Paper}
           variant="outlined"
@@ -68,9 +74,22 @@ export default function EmployeeList() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Funcionário</TableCell>
-                <TableCell>E-mail</TableCell>
-                <TableCell>Ações</TableCell>
+                {desktop ? (
+                  <>
+                    <TableCell>Funcionário</TableCell>
+                    <TableCell>E-mail</TableCell>
+                    <TableCell>Telefone</TableCell>
+                    <TableCell>Salário</TableCell>
+                    <TableCell>Data de Contratação</TableCell>
+                    <TableCell>Ações</TableCell>
+                  </>
+                ) : (
+                  <>
+                    <TableCell>Funcionário</TableCell>
+                    <TableCell>E-mail</TableCell>
+                    <TableCell>Ações</TableCell>
+                  </>
+                )}
               </TableRow>
             </TableHead>
 
@@ -78,17 +97,39 @@ export default function EmployeeList() {
               {rows &&
                 rows.map((item) => {
                   return (
-                    <TableRow key={item.id}>
-                      <TableCell>{item.nomeCompleto}</TableCell>
-                      <TableCell>{item.email}</TableCell>
+                    <TableRow hover key={item.id}>
+                      {desktop ? (
+                        <>
+                          <TableCell>{item.name}</TableCell>
+                          <TableCell>{item.email}</TableCell>
+                          <TableCell>{item.phone}</TableCell>
+                          <TableCell>{item.salary}</TableCell>
+                          <TableCell>{item.created_at}</TableCell>
+                        </>
+                      ) : (
+                        <>
+                          <TableCell>{item.name}</TableCell>
+                          <TableCell>{item.email}</TableCell>
+                        </>
+                      )}
+
                       <TableCell>
                         <Tooltip title="Editar">
                           <IconButton
                             onClick={() =>
-                              navigate(`/dashboard/employee/${item.id}`)
+                              navigate(`/dashboard/employee/edit/${item.id}`)
                             }
                           >
                             <Icon>create</Icon>
+                          </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Ver mais">
+                          <IconButton
+                            onClick={() =>
+                              navigate(`/dashboard/employee/list/${item.id}`)
+                            }
+                          >
+                            <Icon>preview</Icon>
                           </IconButton>
                         </Tooltip>
                         <Tooltip title="Deletar">
@@ -109,7 +150,8 @@ export default function EmployeeList() {
             {rows.length === 0 && !isLoading && (
               <caption>Nenhum Registro Econtrado</caption>
             )}
-            {isLoading && (
+
+            {desktop && isLoading && (
               <TableFooter>
                 <TableRow>
                   <TableCell>
@@ -120,6 +162,42 @@ export default function EmployeeList() {
                   </TableCell>
                   <TableCell>
                     <Skeleton width="auto" height={30} />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton width="auto" height={30} />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton width="auto" height={30} />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton width="auto" height={30} />
+                  </TableCell>
+                </TableRow>
+              </TableFooter>
+            )}
+
+            {tablet && isLoading && (
+              <TableFooter>
+                <TableRow>
+                  <TableCell>
+                    <Skeleton width="auto" height={30} />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton width="auto" height={30} />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton width={30} height={80} />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <Skeleton width="auto" height={30} />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton width="auto" height={30} />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton width={30} height={80} />
                   </TableCell>
                 </TableRow>
               </TableFooter>

@@ -1,34 +1,40 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-import { useNavigate } from "react-router-dom";
-
 import { Box } from "@mui/system";
-import { TextField, useTheme, useMediaQuery, Button } from "@mui/material";
+import {
+  TextField,
+  useTheme,
+  useMediaQuery,
+  Button,
+} from "@mui/material";
 import { EmployeeService } from "../../../services/employees";
-
+import BaseLayOut from "../../../layout/BaseLayOut";
 const formValidation = yup.object({
   id: yup.number(),
-  nomeCompleto: yup.string().required("Campo Obrigatório"),
+  name: yup.string().required("Campo Obrigatório"),
+  document: yup.string().required("Campo Obrigatório"),
   email: yup.string().email().required("Campo Obrigatório"),
-  telefone: yup.string().required("Campo Obrigatório"),
-  salario: yup.string().required("Campo Obrigatório"),
-  dataDeContratacao: yup.string().required("Campo Obrigatório"),
+  phone: yup.string().required("Campo Obrigatório"),
+  birth_date: yup.string().required("Campo Obrigatório"),
+  salary: yup.string().required("Campo Obrigatório"),
+  created_at: yup.string().required("Campo Obrigatório"),
 });
 
 export default function EmployeeRegister() {
-  const navigate = useNavigate();
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   const formik = useFormik({
     initialValues: {
       id: "",
-      nomeCompleto: "",
+      name: "",
+      document: "",
       email: "",
-      telefone: "",
-      salario: "",
-      dataDeContratacao: "",
+      phone: "",
+      birth_date: "",
+      salary: "",
+      created_at: "",
     },
     onSubmit: (values) => {
       formik.values.id = idGenerator();
@@ -50,91 +56,114 @@ export default function EmployeeRegister() {
 
   return (
     <>
-      <Box maxWidth={desktop ? "25%" : "75%"} margin="auto">
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 10,
-          }}
-          onSubmit={formik.handleSubmit}
-        >
-          <TextField
-            autoFocus
-            type="text"
-            id="nomeCompleto"
-            name="nomeCompleto"
-            label="Nome Completo"
-            variant="outlined"
-            fullWidth
-            onChange={formik.handleChange}
-            values={formik.values.nomeCompleto}
-            error={
-              formik.touched.nomeCompleto && Boolean(formik.errors.nomeCompleto)
-            }
-            helperText={
-              formik.touched.nomeCompleto && formik.errors.nomeCompleto
-            }
-          />
-          <TextField
-            type="email"
-            id="email"
-            name="email"
-            label="Email"
-            variant="outlined"
-            fullWidth
-            onChange={formik.handleChange}
-            values={formik.values.email}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-          <TextField
-            type="text"
-            id="telefone"
-            name="telefone"
-            label="Telefone"
-            variant="outlined"
-            fullWidth
-            onChange={formik.handleChange}
-            values={formik.values.telefone}
-            error={formik.touched.telefone && Boolean(formik.errors.telefone)}
-            helperText={formik.touched.telefone && formik.errors.telefone}
-          />
-          <TextField
-            type="text"
-            id="salario"
-            name="salario"
-            label="Salário"
-            variant="outlined"
-            fullWidth
-            onChange={formik.handleChange}
-            values={formik.values.salario}
-            error={formik.touched.salario && Boolean(formik.errors.salario)}
-            helperText={formik.touched.salario && formik.errors.salario}
-          />
-          <TextField
-            label="Data de Contratação"
-            InputLabelProps={{ shrink: true }}
-            type="date"
-            id="dataDeContratacao"
-            name="dataDeContratacao"
-            variant="outlined"
-            fullWidth
-            onChange={formik.handleChange}
-            values={formik.values.dataDeContratacao}
-            error={
-              formik.touched.dataDeContratacao &&
-              Boolean(formik.errors.dataDeContratacao)
-            }
-            helperText={
-              formik.touched.dataDeContratacao &&
-              formik.errors.dataDeContratacao
-            }
-          />
-          <Button type="submit">Salvar</Button>
-        </form>
-      </Box>
+      <BaseLayOut titulo={"Novo Funcionário"}>
+        <Box maxWidth={desktop ? "30%" : "75%"} margin="auto">
+          <form
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 10,
+            }}
+            onSubmit={formik.handleSubmit}
+          >
+            <TextField
+              autoFocus
+              type="text"
+              id="name"
+              name="name"
+              label="Nome Completo"
+              variant="outlined"
+              fullWidth
+              onChange={formik.handleChange}
+              values={formik.values.name}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
+            />
+            <TextField
+              type="text"
+              id="document"
+              name="document"
+              label="CPF"
+              variant="outlined"
+              fullWidth
+              onChange={formik.handleChange}
+              values={formik.values.document}
+              error={formik.touched.document && Boolean(formik.errors.document)}
+              helperText={formik.touched.document && formik.errors.document}
+            />
+
+            <TextField
+              type="email"
+              id="email"
+              name="email"
+              label="Email"
+              variant="outlined"
+              fullWidth
+              onChange={formik.handleChange}
+              values={formik.values.email}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+            <TextField
+              type="text"
+              id="phone"
+              name="phone"
+              label="Telefone"
+              variant="outlined"
+              fullWidth
+              onChange={formik.handleChange}
+              values={formik.values.phone}
+              error={formik.touched.phone && Boolean(formik.errors.phone)}
+              helperText={formik.touched.phone && formik.errors.phone}
+            />
+
+            <TextField
+              type="date"
+              InputLabelProps={{ shrink: true }}
+              id="birth_date"
+              name="birth_date"
+              label="Data De Nascimento"
+              variant="outlined"
+              fullWidth
+              onChange={formik.handleChange}
+              values={formik.values.birth_date}
+              error={
+                formik.touched.birth_date && Boolean(formik.errors.birth_date)
+              }
+              helperText={formik.touched.birth_date && formik.errors.birth_date}
+            />
+            <TextField
+              type="text"
+              id="salary"
+              name="salary"
+              label="Salário"
+              variant="outlined"
+              fullWidth
+              onChange={formik.handleChange}
+              values={formik.values.salary}
+              error={formik.touched.salary && Boolean(formik.errors.salary)}
+              helperText={formik.touched.salary && formik.errors.salary}
+            />
+            <TextField
+              label="Data de Contratação"
+              InputLabelProps={{ shrink: true }}
+              type="date"
+              id="created_at"
+              name="created_at"
+              variant="outlined"
+              fullWidth
+              onChange={formik.handleChange}
+              values={formik.values.created_at}
+              error={
+                formik.touched.created_at && Boolean(formik.errors.created_at)
+              }
+              helperText={formik.touched.created_at && formik.errors.created_at}
+            />
+            <Button type="submit">Salvar</Button>
+          </form>
+        </Box>
+      </BaseLayOut>
     </>
   );
 }
