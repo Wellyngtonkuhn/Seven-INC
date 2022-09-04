@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 
 import DashBoardHome from "../pages/DashBoardHome";
-import EmployeeRegister from "../dashBoard/employee/EmployeeRegister";
-import EmployeeList from "../dashBoard/employee/EmployeeList";
-import EmployeeEdit from "../dashBoard/employee/EmployeeEdit";
-import EmployeeListSingle from "../dashBoard/employee/EmployeeListSingle";
+
+import EmployeeRegister from "../components/dashBoard/employee/EmployeeRegister";
+import EmployeeList from "../components/dashBoard/employee/EmployeeList";
+import EmployeeEdit from "../components/dashBoard/employee/EmployeeEdit";
+import EmployeeListSingle from "../components/dashBoard/employee/EmployeeListSingle";
 
 export default function DashBoardRoutes() {
   return (

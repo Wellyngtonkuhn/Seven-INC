@@ -12,7 +12,7 @@ import {
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-import { EmployeeService } from "../../services/employees";
+import { EmployeeService } from "../../../services/employees";
 import { useParams } from "react-router-dom";
 
 const formValidation = yup.object({

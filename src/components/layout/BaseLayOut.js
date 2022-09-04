@@ -1,4 +1,4 @@
-import { useDashBoardContext } from "../context/DashboardContext";
+import { useDashBoardContext } from "../../context/DashboardContext";
 import NavBar from "../dashBoard/dashBoardMenu/NavBar";
 
 import {

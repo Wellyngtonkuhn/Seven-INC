@@ -8,7 +8,8 @@ import {
   Skeleton,
   Typography,
 } from "@mui/material";
-import BaseLayOut from "../layout/BaseLayOut";
+import BaseLayOut from "../components/layout/BaseLayOut";
+
 import { EmployeeService } from "../services/employees/index";
 
 export default function DashBoardHome() {

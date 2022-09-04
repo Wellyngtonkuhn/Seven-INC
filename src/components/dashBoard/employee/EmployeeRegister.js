@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mui/material";
 
-import { EmployeeService } from "../../services/employees";
+import { EmployeeService } from "../../../services/employees";
 import BaseLayOut from "../../layout/BaseLayOut";
 
 const formValidation = yup.object({

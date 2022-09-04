@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 
 import BaseLayOut from "../../layout/BaseLayOut";
-import { EmployeeService } from "../../services/employees";
+import { EmployeeService } from "../../../services/employees";
 
 export default function EmployeeListSingle() {
   const [detailsEmployee, setDetailsEmployee] = useState([]);
