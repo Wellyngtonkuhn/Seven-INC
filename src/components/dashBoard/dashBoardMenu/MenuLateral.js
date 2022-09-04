@@ -67,7 +67,7 @@ export default function MenuLateral({ children }) {
   const [open, setOpen] = useState(true);
 
   const theme = useTheme();
-  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
   const navigate = useNavigate();
 
   const handleOpenMenuItem = () => {
@@ -83,7 +83,7 @@ export default function MenuLateral({ children }) {
     <>
       <Drawer
         open={isDrawerOpen}
-        variant={smDown ? "temporary" : "permanent"}
+        variant={mobile ? "temporary" : "permanent"}
         onClose={handleDrawer}
       >
         <Box
@@ -108,7 +108,7 @@ export default function MenuLateral({ children }) {
           <Divider />
           <Box flex={1}>
             <List component="nav">
-              <ListItemButton onClick={() => handleClickMenu("/dashboard")}>
+              <ListItemButton onClick={() => handleClickMenu("/")}>
                 <ListItemIcon>
                   <Icon>home</Icon>
                 </ListItemIcon>
@@ -131,7 +131,7 @@ export default function MenuLateral({ children }) {
                     label={item.label}
                     to={item.to}
                     open={open}
-                    onClick={smDown ? handleDrawer : undefined}
+                    onClick={mobile ? handleDrawer : undefined}
                   />
                 );
               })}
@@ -147,7 +147,7 @@ export default function MenuLateral({ children }) {
         </Box>
       </Drawer>
 
-      <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(33)}>
+      <Box height="100vh" marginLeft={mobile ? 0 : theme.spacing(33)}>
         {children}
       </Box>
     </>

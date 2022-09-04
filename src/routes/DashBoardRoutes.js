@@ -11,7 +11,7 @@ export default function DashBoardRoutes() {
   return (
     <>
       <Routes>
-        <Route path="/dashboard" element={<DashBoardHome />} />
+        <Route path="/" element={<DashBoardHome />} />
 
         <Route path="/dashboard/employee/list" element={<EmployeeList />} />
 
