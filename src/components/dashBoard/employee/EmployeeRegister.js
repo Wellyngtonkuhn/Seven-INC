@@ -1,14 +1,12 @@
 import { useFormik } from "formik";
-
+import { formValidation } from "../../../yup";
 
 import { Box } from "@mui/system";
 import { TextField, useTheme, useMediaQuery, Button } from "@mui/material";
 
 import { EmployeeService } from "../../../services/employees";
-
 import BaseLayOut from "../../layout/BaseLayOut";
 
-import { formValidation } from "../../../yup";
 
 export default function EmployeeRegister() {
   const theme = useTheme();
@@ -46,7 +44,7 @@ export default function EmployeeRegister() {
   return (
     <>
       <BaseLayOut titulo={"Novo Funcionário"}>
-        <Box maxWidth={desktop ? "30%" : "75%"} margin="auto">
+        <Box sx={{marginTop: 1}} maxWidth={desktop ? "30%" : "75%"} margin="auto">
           <form
             style={{
               display: "flex",

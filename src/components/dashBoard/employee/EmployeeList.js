@@ -21,16 +21,17 @@ import {
 import BaseLayOut from "../../layout/BaseLayOut";
 import { EmployeeService } from "../../../services/employees";
 
+
 export default function EmployeeList() {
   const [rows, setRows] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  
   const theme = useTheme();
   const tablet = useMediaQuery(theme.breakpoints.down("md"));
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {

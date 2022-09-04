@@ -1,5 +1,4 @@
 import { useDashBoardContext } from "../../context/DashboardContext";
-import NavBar from "../dashBoard/dashBoardMenu/NavBar";
 
 import {
   useTheme,
@@ -46,9 +45,7 @@ export default function BaseLayOut({ children, titulo }) {
             {titulo}
           </Typography>
         </Box>
-        <Box>
-          <NavBar />
-        </Box>
+
         <Box sx={{ m: 1, mt: mobile && 7 }}>{children}</Box>
       </Box>
     </>
