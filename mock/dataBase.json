@@ -8,16 +8,6 @@
       "birth_date": "1850-05-10",
       "salary": "3500",
       "created_at": "2022-08-02",
-      "id": 32
-    },
-    {
-      "name": "Maria José Silva",
-      "document": "14547888",
-      "email": "mariaS@gmail.com",
-      "phone": "47899798",
-      "birth_date": "1850-05-10",
-      "salary": "3500",
-      "created_at": "2022-08-02",
       "id": 33
     },
     {

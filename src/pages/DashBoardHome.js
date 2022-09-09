@@ -8,7 +8,7 @@ import {
   Skeleton,
   Typography,
 } from "@mui/material";
-import BaseLayOut from "../components/layout/BaseLayOut";
+
 
 import { EmployeeService } from "../services/employees/index";
 
@@ -33,7 +33,7 @@ export default function DashBoardHome() {
 
   return (
     <>
-      <BaseLayOut titulo={"PáginaInicial"}>
+ 
         <Box display="flex" sx={{ m: 1 }}>
           <Grid container>
             <Grid item container spacing={2}>
@@ -65,7 +65,7 @@ export default function DashBoardHome() {
             </Grid>
           </Grid>
         </Box>
-      </BaseLayOut>
+
     </>
   );
 }
